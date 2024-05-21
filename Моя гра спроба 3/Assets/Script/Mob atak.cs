@@ -1,91 +1,59 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Mobatak : MonoBehaviour
 {
     public float speed;
-
-    public int positiobofPatrol;
-
-    public Transform point;
-
-    bool moveingRinght;
-
-    Transform player;
-
     public float stoppingDistance;
+    public float visionDistance;
 
-    bool chill = false;
+    public Transform[] moveSpots;
+    public Transform player;
 
-    bool angry = false;
+    private int currentSpot = 0;
+    private bool isChasing = false;
+    private bool isAtSpot = false;
 
-    bool goBack = false;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
-    
     void Update()
     {
-        if (Vector2.Distance(transform.position, point.position) < positiobofPatrol && angry==false)
+        float playerDistance = Vector2.Distance(transform.position, player.position);
+
+        if (playerDistance < stoppingDistance)
         {
-            chill = true;
+            isChasing = true;
         }
-        
-        if(Vector2.Distance(transform.position, player.position) < stoppingDistance) 
+        else if (playerDistance > visionDistance)
         {
-            angry = true;
-            chill = false;
-            goBack = false ;
+            isChasing = false;
+            isAtSpot = false;
         }
 
-        if (Vector2.Distance(transform.position, player.position) > stoppingDistance)
+        if (isChasing)
         {
-            goBack = true;
-            angry = false;
-        }
-
-        if (chill == true)
-        {
-            Chill();
-        }
-        else if (angry == true) 
-        {
-            Angre();
-        }
-        else if (goBack == false) 
-        {
-            GoBack();
-        } 
-    }
-    void Chill()
-    {
-        if (transform.position.x > point.position.x + positiobofPatrol)
-        {
-            moveingRinght = false; 
-        }
-        else if (transform.position.x < point.position.x - positiobofPatrol)
-        {
-            moveingRinght = true;
-        }
-        if (moveingRinght)
-        {
-            transform.position = new Vector2(transform.position.x + speed*Time.deltaTime ,transform.position.y);
+            transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
         }
         else
         {
-            transform.position = new Vector2(transform.position.x - speed * Time.deltaTime, transform.position.y);
+            if (!isAtSpot)
+            {
+                MoveToNextSpot();
+            }
         }
+    }
 
-    }
-    void Angre()
+    void MoveToNextSpot()
     {
-        transform.position = Vector2.MoveTowards(transform.position,player.position, speed * Time.deltaTime);
-    }
-    void GoBack()
-    {
-        transform.position = Vector2.MoveTowards(transform.position, point.position, speed * Time.deltaTime);
+        Vector2 targetPosition = moveSpots[currentSpot].position;
+        transform.position = Vector2.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+
+        if (Vector2.Distance(transform.position, targetPosition) < 0.2f)
+        {
+            currentSpot = (currentSpot + 1) % moveSpots.Length;
+            isAtSpot = true;
+        }
     }
 }
