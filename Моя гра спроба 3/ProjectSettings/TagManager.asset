@@ -8,6 +8,7 @@ TagManager:
   - "\u041A\u0430\u043C\u0456\u043D\u044C"
   - Tree Gathering
   - Stone Gathering
+  - Stone
   layers:
   - Default
   - TransparentFX
