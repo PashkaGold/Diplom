@@ -5,14 +5,18 @@ using UnityEngine;
 public class Damag : MonoBehaviour
 {
     public int collisionDamage = 10;
-    public string collisionTag;
+    public string collisionTagTree;
+    public string collisionTagStone;
 
-    private void OnCollisionEnter2D(Collision2D coll)
+    private void OnTriggerEnter2D(Collider2D coll)
     {
-        if (coll.gameObject.tag == collisionTag)
+        if (coll.gameObject.tag == collisionTagTree || coll.gameObject.tag == collisionTagStone)
         {
             Health health = coll.gameObject.GetComponent<Health>();
-            health.TakeHit(collisionDamage);
+            if (health != null)
+            {
+                health.TakeHit(collisionDamage);
+            }
         }
     }
 }

@@ -13,8 +13,6 @@ GameObject:
   - component: {fileID: 1063045492606322559}
   - component: {fileID: 6381902975877503251}
   - component: {fileID: 1726525632745291476}
-  - component: {fileID: 843626493189857015}
-  - component: {fileID: 5778998629534577006}
   - component: {fileID: 3763296044710076038}
   - component: {fileID: 1219511392727743380}
   - component: {fileID: 8653725298446754660}
@@ -151,34 +149,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   maxHealth: 100
---- !u!114 &843626493189857015
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7955468750832858803}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6ba383b30b9d5d4badc052e40b719dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collisionDamage: 300
-  collisionTag: Tree
---- !u!114 &5778998629534577006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7955468750832858803}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6ba383b30b9d5d4badc052e40b719dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collisionDamage: 25
-  collisionTag: "\u041A\u0430\u043C\u0456\u043D\u044C"
 --- !u!114 &3763296044710076038
 MonoBehaviour:
   m_ObjectHideFlags: 0
