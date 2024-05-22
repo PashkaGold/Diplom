@@ -14700,7 +14700,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &986638248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74018,6 +74018,10 @@ PrefabInstance:
       propertyPath: slider
       value: 
       objectReference: {fileID: 996465688}
+    - target: {fileID: 5259313404263441743, guid: 8d187cad997e3fe4aafb708a66f9be2e, type: 3}
+      propertyPath: targetObject
+      value: 
+      objectReference: {fileID: 986638247}
     - target: {fileID: 5312895532162705518, guid: 8d187cad997e3fe4aafb708a66f9be2e, type: 3}
       propertyPath: woodText
       value: 
