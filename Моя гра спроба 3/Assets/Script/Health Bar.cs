@@ -3,24 +3,37 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthBar: MonoBehaviour
+public class HealthBar : MonoBehaviour
 {
     public Slider slider;
-    public Health playerhealth;
+    public PlayerHealth playerHealth; // Посилання на новий скрипт PlayerHealth
 
     private void Start()
     {
-        SetMaxHealth(playerhealth.maxHealth);
+        if (playerHealth != null)
+        {
+            SetMaxHealth(playerHealth.maxHealth);
+        }
+        else
+        {
+            Debug.LogError("PlayerHealth not assigned in HealthBar.");
+        }
     }
+
     private void Update()
     {
-        SetHealth(playerhealth.health);
+        if (playerHealth != null)
+        {
+            SetHealth(playerHealth.currentHealth);
+        }
     }
+
     public void SetMaxHealth(int health)
     {
         slider.maxValue = health;
         slider.value = health;
     }
+
     public void SetHealth(int health)
     {
         slider.value = health;

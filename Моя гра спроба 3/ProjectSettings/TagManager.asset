@@ -9,6 +9,9 @@ TagManager:
   - Tree Gathering
   - Stone Gathering
   - Stone
+  - Mob
+  - Mob Getering
+  - Mob Atak Getering
   layers:
   - Default
   - TransparentFX

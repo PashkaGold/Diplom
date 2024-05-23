@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4014179932869028426}
   - component: {fileID: 1063045492606322559}
   - component: {fileID: 6381902975877503251}
-  - component: {fileID: 1726525632745291476}
+  - component: {fileID: 1989594607233568044}
   - component: {fileID: 3763296044710076038}
   - component: {fileID: 1219511392727743380}
   - component: {fileID: 8653725298446754660}
@@ -136,7 +136,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   animator: {fileID: 8653725298446754660}
   speed: 0
---- !u!114 &1726525632745291476
+--- !u!114 &1989594607233568044
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -145,11 +145,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7955468750832858803}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c705a5195d54cad4096ed92a5a8b0723, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c0a79302c4b0c540a9c46a4012c5bf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
   maxHealth: 100
+  currentHealth: 0
 --- !u!114 &3763296044710076038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 0}
-  playerhealth: {fileID: 1726525632745291476}
+  playerHealth: {fileID: 1989594607233568044}
 --- !u!61 &1219511392727743380
 BoxCollider2D:
   m_ObjectHideFlags: 0

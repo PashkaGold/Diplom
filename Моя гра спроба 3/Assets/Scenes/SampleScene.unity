@@ -10715,14 +10715,17 @@ GameObject:
   - component: {fileID: 163709575}
   - component: {fileID: 163709579}
   - component: {fileID: 163709578}
+  - component: {fileID: 163709582}
+  - component: {fileID: 163709580}
+  - component: {fileID: 163709581}
   - component: {fileID: 163709577}
   m_Layer: 0
   m_Name: Mob Atak
-  m_TagString: Untagged
+  m_TagString: Mob
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &163709575
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10874,6 +10877,49 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &163709580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163709574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6021eab3528e20043904082ce5e521fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionDamage: 10
+  collisionTag: Player
+--- !u!114 &163709581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163709574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c705a5195d54cad4096ed92a5a8b0723, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  maxHealth: 100
+--- !u!114 &163709582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163709574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 341714745a975334a90c5db12d4217a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedItemPrefab: {fileID: 5443128239349979267, guid: 408d8ca0b6c475a4c9ef27630efc734a, type: 3}
+  lootList:
+  - {fileID: 11400000, guid: abb37af0e05199041bc2785c64d109ad, type: 2}
 --- !u!4 &170136740 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 522853350425414765, guid: 696c3961de707c543afb276319b0ebf5, type: 3}
@@ -15050,7 +15096,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &986638248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15126,13 +15172,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 986638247}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.99994504, w: -0.010485802}
   m_LocalPosition: {x: -1.8506999, y: -1.6481001, z: 0}
   m_LocalScale: {x: 2.8146, y: 0.5831, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1607138120}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 181.202}
 --- !u!61 &986638251
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15190,9 +15236,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6ba383b30b9d5d4badc052e40b719dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisionDamage: 100
+  collisionDamage: 50
   collisionTagTree: Tree
   collisionTagStone: Stone
+  collisionTagMob: Mob
 --- !u!50 &986638253
 Rigidbody2D:
   serializedVersion: 4
@@ -61866,12 +61913,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1139253638}
   - component: {fileID: 1139253637}
+  - component: {fileID: 1139253642}
   - component: {fileID: 1139253636}
+  - component: {fileID: 1139253641}
   - component: {fileID: 1139253640}
   - component: {fileID: 1139253639}
   m_Layer: 0
   m_Name: 'Mob '
-  m_TagString: Untagged
+  m_TagString: Mob
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62031,6 +62080,35 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &1139253641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1139253635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 341714745a975334a90c5db12d4217a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedItemPrefab: {fileID: 6493616808399113891, guid: 75b2a8099ed119246bed2eeddf6089ff, type: 3}
+  lootList:
+  - {fileID: 11400000, guid: 3ae59397f31328a4f9eab77d1304ba6e, type: 2}
+--- !u!114 &1139253642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1139253635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c705a5195d54cad4096ed92a5a8b0723, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 20
+  maxHealth: 20
 --- !u!4 &1148635326 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1925279321447159948, guid: 3fa1554f6d2d710419bb2eb62e819d1a, type: 3}
@@ -64774,6 +64852,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eac394562e9e12348807efef67980b45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1607138132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597469845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c0a79302c4b0c540a9c46a4012c5bf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
 --- !u!1 &1609787517
 GameObject:
   m_ObjectHideFlags: 0
@@ -74529,7 +74621,10 @@ PrefabInstance:
       addedObject: {fileID: 986638250}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7955468750832858803, guid: 8d187cad997e3fe4aafb708a66f9be2e, type: 3}
-      insertIndex: 8
+      insertIndex: 5
+      addedObject: {fileID: 1607138132}
+    - targetCorrespondingSourceObject: {fileID: 7955468750832858803, guid: 8d187cad997e3fe4aafb708a66f9be2e, type: 3}
+      insertIndex: 9
       addedObject: {fileID: 1607138131}
   m_SourcePrefab: {fileID: 100100000, guid: 8d187cad997e3fe4aafb708a66f9be2e, type: 3}
 --- !u!1660057539 &9223372036854775807

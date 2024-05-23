@@ -16,6 +16,7 @@ public class Health : MonoBehaviour
             Destroy(gameObject);
             Debug.Log("Object was deleted");
         }
+
     }
     public void Sethealth(int bonusHealth)
     {
