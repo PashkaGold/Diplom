@@ -11,7 +11,7 @@ TagManager:
   - Stone
   - Mob
   - Mob Getering
-  - Mob Atak Getering
+  - Gold Getering
   layers:
   - Default
   - TransparentFX
