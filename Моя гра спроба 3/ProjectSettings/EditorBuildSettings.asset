@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Scene Death.unity
     guid: 5d35ce7bb8d833d488b95b28eee6fdd7
+  - enabled: 1
+    path: Assets/Scenes/Atak Mob Scene.unity
+    guid: 2efea98e109c36740a1390f8665b770b
   m_configObjects: {}
