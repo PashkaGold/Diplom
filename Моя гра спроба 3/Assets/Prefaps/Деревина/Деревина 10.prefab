@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 86279270548230244}
   - component: {fileID: 3375444597343027166}
   - component: {fileID: -8673583103514173205}
+  - component: {fileID: 4742051985006598934}
   m_Layer: 0
   m_Name: "\u0414\u0435\u0440\u0435\u0432\u0438\u043D\u0430 10"
   m_TagString: Tree
@@ -161,3 +162,19 @@ MonoBehaviour:
   droppedItemPrefab: {fileID: 314835890080815426, guid: c9b17067f0c268343b04f9933c90086a, type: 3}
   lootList:
   - {fileID: 11400000, guid: f25f6f1b723b33541a2c0a6d5d3156a4, type: 2}
+--- !u!114 &4742051985006598934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8385395798544970145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fa0352a4d56abd42ad2fc69deb72448, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Size: {x: 0.5837965, y: 1.1440821, z: 4}
+  m_Center: {x: -0.34490538, y: -0.7655859, z: 0}
+  m_Area: 1
+  m_AffectedAgents: ffffffff
