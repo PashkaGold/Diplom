@@ -10,7 +10,8 @@ TagManager:
   - Stone Gathering
   - Stone
   - Mob
-  - Mob Getering
+  - Gold Gathering
+  - Mob Gathering
   - Gold Getering
   layers:
   - Default
@@ -48,4 +49,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: "\u0438\u043C"
+    uniqueID: 1552847755
     locked: 0

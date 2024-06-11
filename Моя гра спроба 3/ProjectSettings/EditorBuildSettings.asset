@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Atak Mob Scene.unity
     guid: 2efea98e109c36740a1390f8665b770b
+  - enabled: 1
+    path: Assets/Scenes/Map Mob.unity
+    guid: 653b914f813a1df40ba1d11ab92f8b00
   m_configObjects: {}

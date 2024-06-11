@@ -3,9 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class SceneChangeTrigger2D : MonoBehaviour
 {
-    // Публічна змінна для вказівки індексу сцени
+    
     public int sceneIndex;
-    // Публічна змінна для вказівки тегу, який буде перевірятися
+    
     public string triggerTag = "Player";
 
     // Метод, який викликається, коли інший об'єкт входить у тригер

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8810134152380714251}
   m_Layer: 0
   m_Name: Circle
-  m_TagString: Mob Getering
+  m_TagString: Mob Gathering
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

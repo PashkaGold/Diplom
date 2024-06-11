@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI ;
+using UnityEngine.AI;
 using KnightAdventure.Utils;
 
 public class EnemyAI : MonoBehaviour
 {
     [SerializeField] private State startingState;
-    [SerializeField] private float roamingDistanceMax = 7f ;
+    [SerializeField] private float roamingDistanceMax = 7f;
     [SerializeField] private float roamingDistanceMin = 3f;
     [SerializeField] private float roamingTimerMax = 2f;
 
@@ -17,15 +17,10 @@ public class EnemyAI : MonoBehaviour
     private Vector3 roamPosition;
     private Vector3 startingPosition;
 
-    private enum State
+    public enum State // «роблено публ≥чним
     {
         Idle,
         Roaming
-    }
-
-    private void Start()
-    {
-        startingPosition= transform.position;
     }
 
     private void Awake()
@@ -33,35 +28,51 @@ public class EnemyAI : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
         navMeshAgent.updateRotation = false;
         navMeshAgent.updateUpAxis = false;
-        state = startingState; 
+        state = startingState;
+        startingPosition = transform.position;
+    }
+
+    private void Start()
+    {
+        if (roamingDistanceMin > roamingDistanceMax)
+        {
+            float temp = roamingDistanceMin;
+            roamingDistanceMin = roamingDistanceMax;
+            roamingDistanceMax = temp;
+        }
     }
 
     private void Update()
     {
-        switch (state) 
+        switch (state)
         {
             default:
-                case State.Idle:
+            case State.Idle:
                 break;
-                case State.Roaming:
+            case State.Roaming:
                 roamingTime -= Time.deltaTime;
                 if (roamingTime < 0)
                 {
-
                     Roaming();
                     roamingTime = roamingTimerMax;
                 }
                 break;
         }
     }
+
     private void Roaming()
     {
         roamPosition = GetRoamingPosition();
         navMeshAgent.SetDestination(roamPosition);
     }
+
     private Vector3 GetRoamingPosition()
     {
-        return startingPosition + Utils.GetRandomDir()* UnityEngine.Random.Range(roamingDistanceMax, roamingDistanceMin); 
+        return startingPosition + Utils.GetRandomDir() * UnityEngine.Random.Range(roamingDistanceMin, roamingDistanceMax);
+    }
 
+    public void SetState(State newState)
+    {
+        state = newState;
     }
 }

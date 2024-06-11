@@ -47,7 +47,7 @@ public class GatheringCounter : MonoBehaviour
             // «береженн€ значенн€ каменю
             PlayerPrefs.SetFloat("Stone", stone);
         }
-        else if (coll.gameObject.tag == "Mob Getering")
+        else if (coll.gameObject.tag == "Mob Gathering")
         {
             mob++;
             mobText.text = mob.ToString();
@@ -56,7 +56,7 @@ public class GatheringCounter : MonoBehaviour
             // «береженн€ значенн€ каменю
             PlayerPrefs.SetFloat("Mob", mob);
         }
-        else if (coll.gameObject.tag == "Gold Getering")
+        else if (coll.gameObject.tag == "Gold Gathering")
         {
             gold++;
             goldText.text = gold.ToString();

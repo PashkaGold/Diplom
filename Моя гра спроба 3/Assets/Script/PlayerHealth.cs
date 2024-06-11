@@ -5,6 +5,7 @@ public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 100;
     public int currentHealth;
+    public int sceneIndex;
 
     private void Start()
     {
@@ -28,6 +29,6 @@ public class PlayerHealth : MonoBehaviour
         Debug.Log("Player died!");
 
         // Перехід на наступну сцену (використовуємо наступну сцену в порядку їх додавання до build settings)
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(sceneIndex);
     }
 }

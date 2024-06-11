@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8993180064680049294}
   m_Layer: 0
   m_Name: Circle (1)
-  m_TagString: Gold Getering
+  m_TagString: Gold Gathering
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
