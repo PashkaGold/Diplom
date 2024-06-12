@@ -1,29 +1,80 @@
+п»їusing System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ObjectActivator : MonoBehaviour
 {
     [SerializeField]
-    GameObject[] targetObjects; // Масив об'єктів для активації
+    GameObject[] targetObjects; // пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ'пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+    [SerializeField]
+    public TMP_Text GoldText;
+    [SerializeField]
+    GameObject[] predefinedObjects; // пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ'пїЅпїЅпїЅпїЅпїЅпїЅ
 
     bool isActive = false;
+    int addedObjectsCount = 0; // ЛіпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ'пїЅпїЅпїЅпїЅ
+    const int maxAddedObjects = 5; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ'пїЅпїЅпїЅпїЅ
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            isActive = !isActive;
-            StartCoroutine(ActivateObjectsWithDelay());
+            ToggleActivation();
         }
+
     }
 
-    IEnumerator ActivateObjectsWithDelay()
+    void ToggleActivation()
+    {
+        isActive = !isActive;
+        ActivateObjects();
+    }
+
+    void ActivateObjects()
     {
         foreach (GameObject targetObject in targetObjects)
         {
             targetObject.SetActive(isActive);
-            yield return new WaitForSeconds(0.5f); // Затримка в 1 секунду перед активацією наступного об'єкта
         }
     }
+
+    public void AddNewTargetObject()
+    {
+        if (Int32.Parse(GoldText.text) >= 10)
+        {
+            if (addedObjectsCount >= maxAddedObjects)
+            {
+                Debug.LogWarning("Maximum number of objects added.");
+                return;
+            }
+
+            // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ'пїЅпїЅпїЅпїЅ
+            addedObjectsCount++;
+
+            // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ'пїЅпїЅпїЅ пїЅ predefinedObjects
+            GameObject newObject = predefinedObjects[addedObjectsCount - 1];
+
+            // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ'пїЅпїЅпїЅпїЅ
+            GameObject[] newTargetObjects = new GameObject[targetObjects.Length + 1];
+
+            // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ'пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+            for (int i = 0; i < targetObjects.Length; i++)
+            {
+                newTargetObjects[i] = targetObjects[i];
+            }
+
+            // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ'пїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+            newTargetObjects[targetObjects.Length] = newObject;
+
+            // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+            targetObjects = newTargetObjects;
+
+            // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ'пїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+            newObject.SetActive(isActive);
+        }
+
+    }
 }
+

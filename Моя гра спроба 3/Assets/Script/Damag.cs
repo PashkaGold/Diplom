@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Damag : MonoBehaviour
@@ -10,7 +12,24 @@ public class Damag : MonoBehaviour
     public string collisionTagMob;
     public string knockbackTag; // Тег об'єкта, який потрібно відкинути
     public float knockbackForce = 10f; // Сила відкидання
+    public TMP_Text GoldText;
 
+
+    public void ChangeKnockback()
+    {
+        if (Int32.Parse(GoldText.text) >= 10)
+        {
+            float count = 1f;
+            knockbackForce += count;
+        }
+    }
+    public void ChangeDamage()
+    {
+        if (Int32.Parse(GoldText.text) >= 10)
+        {
+            collisionDamage += 1;
+        }
+    }
     private void OnTriggerEnter2D(Collider2D coll)
     {
         // Перевірка на нанесення урону
@@ -22,6 +41,7 @@ public class Damag : MonoBehaviour
                 health.TakeHit(collisionDamage);
             }
         }
+
 
         // Перевірка на відкидання
         if (coll.gameObject.tag == knockbackTag)

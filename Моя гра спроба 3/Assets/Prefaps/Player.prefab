@@ -1245,6 +1245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
+  sceneIndex: 0
 --- !u!114 &3763296044710076038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1339,6 +1340,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetObjects:
   - {fileID: 8910004461053885063}
+  predefinedObjects:
   - {fileID: 657455905099826427}
   - {fileID: 6460495571077356188}
   - {fileID: 2210010225243995754}
