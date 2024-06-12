@@ -189,7 +189,7 @@ MonoBehaviour:
   startingState: 1
   roamingDistanceMax: 20
   roamingDistanceMin: 5
-  roamingTimerMax: 10
+  roamingTimerMax: 1
 --- !u!114 &5998202866653484838
 MonoBehaviour:
   m_ObjectHideFlags: 0

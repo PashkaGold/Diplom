@@ -25,16 +25,21 @@ public class Boss : MonoBehaviour
 
     void Update()
     {
-        if (Time.time >= nextAttackTime)
+        if (player == null)
         {
-            if (Vector2.Distance(transform.position, player.position) <= attackRange)
-            {
-                Attack();
-                nextAttackTime = Time.time + 1f / attackRate;
-            }
+            Debug.LogWarning("Player Transform is not assigned.");
+            return;
         }
 
-        if (Vector2.Distance(transform.position, player.position) > stoppingDistance)
+        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+
+        if (Time.time >= nextAttackTime && distanceToPlayer <= attackRange)
+        {
+            Attack();
+            nextAttackTime = Time.time + 1f / attackRate;
+        }
+
+        if (distanceToPlayer > stoppingDistance)
         {
             transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
         }
@@ -43,14 +48,23 @@ public class Boss : MonoBehaviour
     void Attack()
     {
         Collider2D[] hitPlayers = Physics2D.OverlapCircleAll(transform.position, attackRange, playerLayer);
-        foreach (Collider2D player in hitPlayers)
+        foreach (Collider2D hitPlayer in hitPlayers)
         {
-            player.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
+            PlayerHealth playerHealth = hitPlayer.GetComponent<PlayerHealth>();
+            if (playerHealth != null)
+            {
+                playerHealth.TakeDamage(attackDamage);
+            }
+            else
+            {
+                Debug.LogWarning("PlayerHealth component not found on target.");
+            }
         }
     }
 
     void OnDrawGizmosSelected()
     {
+        Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 
