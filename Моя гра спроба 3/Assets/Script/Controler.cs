@@ -1,5 +1,7 @@
+п»їusing System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Controler : MonoBehaviour
@@ -17,38 +19,46 @@ public class Controler : MonoBehaviour
     }
     void Update()
     {
-        // Отримуємо вхідні дані для руху
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
         direction.x = Input.GetAxis("Horizontal");
         direction.y = Input.GetAxis("Vertical");
 
-        // Рухаємо персонажа
+        // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         Vector2 movement = new Vector2(direction.x, direction.y).normalized;
         rb.velocity = movement * moveSpeed;
         animator.SetFloat("Horizontal", direction.x);
         animator.SetFloat("Vertical", direction.y);
         animator.SetFloat("Speed", direction.sqrMagnitude);
-        // Провіряємо, чи гравець натиснув клавішу атаки (наприклад, пробіл)
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ)
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            // Викликаємо метод для виконання атаки
+            // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
             Attack();
         }
 
     }
+    public TMP_Text GoldText;
 
-
-    void Attack()
+    public void ChangeSpeed()
     {
-        // Провіряємо, чи є об'єкти в атакованому діапазоні
+        if (Int32.Parse(GoldText.text) >= 10)
+        {
+            var multiplier = moveSpeed * 0.1f;
+            moveSpeed += multiplier; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+        }
+    }
+    public void Attack()
+    {
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅ пїЅ пїЅпїЅ'пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, attackRange);
         foreach (Collider2D enemy in hitEnemies)
         {
-            // Тут можна здійснювати дійсні дії атаки, наприклад, зменшувати здоров'я ворога.
-            // Наприклад, enemy.GetComponent<Enemy>().TakeDamage(damage);
+            // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ дії пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ'пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ.
+            // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, enemy.GetComponent<Enemy>().TakeDamage(damage);
         }
     }
 
-    // Малюємо границі атаки для візуалізації
+    // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
@@ -58,4 +68,5 @@ public class Controler : MonoBehaviour
     {
 
     }
+
 }

@@ -1,3 +1,5 @@
+using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,10 +8,19 @@ public class PlayerHealth : MonoBehaviour
     public int maxHealth = 100;
     public int currentHealth;
     public int sceneIndex;
+    public TMP_Text GoldText;
 
     private void Start()
     {
         currentHealth = maxHealth; // Встановлюємо початкове здоров'я рівним максимальному
+    }
+
+    public void ChangeHealse()
+    {
+        if (Int32.Parse(GoldText.text) >= 10)
+        {
+            maxHealth += 10;
+        }
     }
 
     public void TakeDamage(int damage)

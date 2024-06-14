@@ -14296,7 +14296,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Knockback
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -14995,7 +14995,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Damage
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -15121,6 +15121,22 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a80de6539c99a442acaa79482ed16a3, type: 3}
+--- !u!1 &517196181 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 657455905099826427, guid: 8d187cad997e3fe4aafb708a66f9be2e, type: 3}
+  m_PrefabInstance: {fileID: 2884135295376422551}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &517196184 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4209578629953410450, guid: 8d187cad997e3fe4aafb708a66f9be2e, type: 3}
+  m_PrefabInstance: {fileID: 2884135295376422551}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 517196181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6ba383b30b9d5d4badc052e40b719dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &529540865
 GameObject:
   m_ObjectHideFlags: 0
@@ -15404,7 +15420,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Health
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -15903,7 +15919,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Speed
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -16238,7 +16254,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Activator
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -17014,14 +17030,86 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Shop, Assembly-CSharp
-        m_MethodName: UpgradeDamage
+      - m_Target: {fileID: 2100834744}
+        m_TargetAssemblyTypeName: Damag, Assembly-CSharp
+        m_MethodName: ChangeDamage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 517196184}
+        m_TargetAssemblyTypeName: Damag, Assembly-CSharp
+        m_MethodName: ChangeDamage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1752876784}
+        m_TargetAssemblyTypeName: Damag, Assembly-CSharp
+        m_MethodName: ChangeDamage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 998886184}
+        m_TargetAssemblyTypeName: Damag, Assembly-CSharp
+        m_MethodName: ChangeDamage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1724955404}
+        m_TargetAssemblyTypeName: Damag, Assembly-CSharp
+        m_MethodName: ChangeDamage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1119264061}
+        m_TargetAssemblyTypeName: Damag, Assembly-CSharp
+        m_MethodName: ChangeDamage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1607138129}
+        m_TargetAssemblyTypeName: GatheringCounter.GatheringCounter, Assembly-CSharp
+        m_MethodName: MinusGold
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 10
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -17078,6 +17166,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &998886181 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2210010225243995754, guid: 8d187cad997e3fe4aafb708a66f9be2e, type: 3}
+  m_PrefabInstance: {fileID: 2884135295376422551}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &998886184 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6534646669609747392, guid: 8d187cad997e3fe4aafb708a66f9be2e, type: 3}
+  m_PrefabInstance: {fileID: 2884135295376422551}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998886181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6ba383b30b9d5d4badc052e40b719dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1005117598
@@ -63520,6 +63624,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8575130549505764790, guid: 986bafed234f02844b10db77b69f04a7, type: 3}
   m_PrefabInstance: {fileID: 1415186493}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1119264058 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2796837689916049239, guid: 8d187cad997e3fe4aafb708a66f9be2e, type: 3}
+  m_PrefabInstance: {fileID: 2884135295376422551}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1119264061 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8316059741587581490, guid: 8d187cad997e3fe4aafb708a66f9be2e, type: 3}
+  m_PrefabInstance: {fileID: 2884135295376422551}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119264058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6ba383b30b9d5d4badc052e40b719dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1121881747
 GameObject:
   m_ObjectHideFlags: 0
@@ -63787,14 +63907,26 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Shop, Assembly-CSharp
-        m_MethodName: UpgradeAngularSpeed
+      - m_Target: {fileID: 2100834746}
+        m_TargetAssemblyTypeName: AtakPlayer, Assembly-CSharp
+        m_MethodName: ChangeSpeedGun
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1607138129}
+        m_TargetAssemblyTypeName: GatheringCounter.GatheringCounter, Assembly-CSharp
+        m_MethodName: MinusGold
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 10
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -64023,7 +64155,6 @@ GameObject:
   - component: {fileID: 1335837073}
   - component: {fileID: 1335837072}
   - component: {fileID: 1335837071}
-  - component: {fileID: 1335837076}
   m_Layer: 5
   m_Name: ShopMenu
   m_TagString: Untagged
@@ -64114,22 +64245,6 @@ RectTransform:
   m_AnchoredPosition: {x: 400.00006, y: 225.00003}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1335837076
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1335837070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0996c20797347a74185fbefcf008b7cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  woodText: {fileID: 1408007191}
-  stoneText: {fileID: 147164497}
-  mobText: {fileID: 449428519}
-  goldText: {fileID: 1927437835}
 --- !u!4 &1339557376 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 522853350425414765, guid: 696c3961de707c543afb276319b0ebf5, type: 3}
@@ -64966,9 +65081,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Shop, Assembly-CSharp
-        m_MethodName: BuyObjectActivationUpgrade
+      - m_Target: {fileID: 1607138129}
+        m_TargetAssemblyTypeName: GatheringCounter, Assembly-CSharp
+        m_MethodName: MinusGold
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 10
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1607138130}
+        m_TargetAssemblyTypeName: ObjectActivator, Assembly-CSharp
+        m_MethodName: AddNewTargetObject
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -65364,7 +65491,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Speed Gan
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -65584,10 +65711,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0996c20797347a74185fbefcf008b7cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gold: -0.5
   woodText: {fileID: 1273077358}
   stoneText: {fileID: 533370236}
   mobText: {fileID: 119971035}
   goldText: {fileID: 2029469659}
+  woodText1: {fileID: 1408007191}
+  stoneText1: {fileID: 147164497}
+  mobText1: {fileID: 449428519}
+  goldText1: {fileID: 1927437835}
+--- !u!114 &1607138130 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5259313404263441743, guid: 8d187cad997e3fe4aafb708a66f9be2e, type: 3}
+  m_PrefabInstance: {fileID: 2884135295376422551}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266409219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9af75c354b6935142affbb65619babb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1607138134 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1989594607233568044, guid: 8d187cad997e3fe4aafb708a66f9be2e, type: 3}
+  m_PrefabInstance: {fileID: 2884135295376422551}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266409219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c0a79302c4b0c540a9c46a4012c5bf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1607138135 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6381902975877503251, guid: 8d187cad997e3fe4aafb708a66f9be2e, type: 3}
+  m_PrefabInstance: {fileID: 2884135295376422551}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266409219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92232e18efdf604499e54d2b086a32f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1637923616
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -65764,6 +65929,22 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 696c3961de707c543afb276319b0ebf5, type: 3}
+--- !u!1 &1724955401 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4244477662495962157, guid: 8d187cad997e3fe4aafb708a66f9be2e, type: 3}
+  m_PrefabInstance: {fileID: 2884135295376422551}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1724955404 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8446696579206535101, guid: 8d187cad997e3fe4aafb708a66f9be2e, type: 3}
+  m_PrefabInstance: {fileID: 2884135295376422551}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724955401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6ba383b30b9d5d4badc052e40b719dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1727103727 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 522853350425414765, guid: 696c3961de707c543afb276319b0ebf5, type: 3}
@@ -65847,6 +66028,22 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 986bafed234f02844b10db77b69f04a7, type: 3}
+--- !u!1 &1752876781 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6460495571077356188, guid: 8d187cad997e3fe4aafb708a66f9be2e, type: 3}
+  m_PrefabInstance: {fileID: 2884135295376422551}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1752876784 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5485056946116704039, guid: 8d187cad997e3fe4aafb708a66f9be2e, type: 3}
+  m_PrefabInstance: {fileID: 2884135295376422551}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1752876781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6ba383b30b9d5d4badc052e40b719dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1759578210
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -65987,14 +66184,26 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Shop, Assembly-CSharp
-        m_MethodName: UpgradeHealth
+      - m_Target: {fileID: 1607138134}
+        m_TargetAssemblyTypeName: PlayerHealth, Assembly-CSharp
+        m_MethodName: ChangeHealse
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1607138129}
+        m_TargetAssemblyTypeName: GatheringCounter.GatheringCounter, Assembly-CSharp
+        m_MethodName: MinusGold
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 10
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -66454,14 +66663,86 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Shop, Assembly-CSharp
-        m_MethodName: UpgradeKnockback
+      - m_Target: {fileID: 2100834744}
+        m_TargetAssemblyTypeName: Damag, Assembly-CSharp
+        m_MethodName: ChangeKnockback
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 517196184}
+        m_TargetAssemblyTypeName: Damag, Assembly-CSharp
+        m_MethodName: ChangeKnockback
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1752876784}
+        m_TargetAssemblyTypeName: Damag, Assembly-CSharp
+        m_MethodName: ChangeKnockback
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 998886184}
+        m_TargetAssemblyTypeName: Damag, Assembly-CSharp
+        m_MethodName: ChangeKnockback
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1724955404}
+        m_TargetAssemblyTypeName: Damag, Assembly-CSharp
+        m_MethodName: ChangeKnockback
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1119264061}
+        m_TargetAssemblyTypeName: Damag, Assembly-CSharp
+        m_MethodName: ChangeKnockback
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1607138129}
+        m_TargetAssemblyTypeName: GatheringCounter, Assembly-CSharp
+        m_MethodName: MinusGold
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 10
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -66866,14 +67147,26 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Shop, Assembly-CSharp
-        m_MethodName: UpgradeSpeed
+      - m_Target: {fileID: 1607138135}
+        m_TargetAssemblyTypeName: Controler, Assembly-CSharp
+        m_MethodName: ChangeSpeed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1607138129}
+        m_TargetAssemblyTypeName: GatheringCounter, Assembly-CSharp
+        m_MethodName: MinusGold
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 10
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -67168,6 +67461,28 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a24eed65a3285464e8cdee097f9281e8, type: 3}
+--- !u!114 &2100834744 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4451088939765801113, guid: 8d187cad997e3fe4aafb708a66f9be2e, type: 3}
+  m_PrefabInstance: {fileID: 2884135295376422551}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6ba383b30b9d5d4badc052e40b719dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2100834746 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 221847923503409526, guid: 8d187cad997e3fe4aafb708a66f9be2e, type: 3}
+  m_PrefabInstance: {fileID: 2884135295376422551}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2c84bec8a200424bb838d8dfc83f961, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2112263426
 GameObject:
   m_ObjectHideFlags: 0
@@ -74048,6 +74363,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 221847923503409526, guid: 8d187cad997e3fe4aafb708a66f9be2e, type: 3}
+      propertyPath: GoldText
+      value: 
+      objectReference: {fileID: 2029469659}
+    - target: {fileID: 667601290767741002, guid: 8d187cad997e3fe4aafb708a66f9be2e, type: 3}
+      propertyPath: GoldText
+      value: 
+      objectReference: {fileID: 2029469659}
+    - target: {fileID: 1668489392991753992, guid: 8d187cad997e3fe4aafb708a66f9be2e, type: 3}
+      propertyPath: GoldText
+      value: 
+      objectReference: {fileID: 2029469659}
+    - target: {fileID: 1989594607233568044, guid: 8d187cad997e3fe4aafb708a66f9be2e, type: 3}
+      propertyPath: GoldText
+      value: 
+      objectReference: {fileID: 2029469659}
     - target: {fileID: 1989594607233568044, guid: 8d187cad997e3fe4aafb708a66f9be2e, type: 3}
       propertyPath: sceneIndex
       value: 2
@@ -74056,6 +74387,58 @@ PrefabInstance:
       propertyPath: slider
       value: 
       objectReference: {fileID: 996465688}
+    - target: {fileID: 4209578629953410450, guid: 8d187cad997e3fe4aafb708a66f9be2e, type: 3}
+      propertyPath: GoldText
+      value: 
+      objectReference: {fileID: 2029469659}
+    - target: {fileID: 4451088939765801113, guid: 8d187cad997e3fe4aafb708a66f9be2e, type: 3}
+      propertyPath: GoldText
+      value: 
+      objectReference: {fileID: 2029469659}
+    - target: {fileID: 5251781899059427937, guid: 8d187cad997e3fe4aafb708a66f9be2e, type: 3}
+      propertyPath: GoldText
+      value: 
+      objectReference: {fileID: 2029469659}
+    - target: {fileID: 5259313404263441743, guid: 8d187cad997e3fe4aafb708a66f9be2e, type: 3}
+      propertyPath: center
+      value: 
+      objectReference: {fileID: 1607138120}
+    - target: {fileID: 5259313404263441743, guid: 8d187cad997e3fe4aafb708a66f9be2e, type: 3}
+      propertyPath: GoldText
+      value: 
+      objectReference: {fileID: 2029469659}
+    - target: {fileID: 5259313404263441743, guid: 8d187cad997e3fe4aafb708a66f9be2e, type: 3}
+      propertyPath: goldText
+      value: 
+      objectReference: {fileID: 2029469659}
+    - target: {fileID: 5259313404263441743, guid: 8d187cad997e3fe4aafb708a66f9be2e, type: 3}
+      propertyPath: circleCenter
+      value: 
+      objectReference: {fileID: 1607138120}
+    - target: {fileID: 5259313404263441743, guid: 8d187cad997e3fe4aafb708a66f9be2e, type: 3}
+      propertyPath: targetObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5259313404263441743, guid: 8d187cad997e3fe4aafb708a66f9be2e, type: 3}
+      propertyPath: targetObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 517196181}
+    - target: {fileID: 5259313404263441743, guid: 8d187cad997e3fe4aafb708a66f9be2e, type: 3}
+      propertyPath: targetObjects.Array.data[2]
+      value: 
+      objectReference: {fileID: 1752876781}
+    - target: {fileID: 5259313404263441743, guid: 8d187cad997e3fe4aafb708a66f9be2e, type: 3}
+      propertyPath: targetObjects.Array.data[3]
+      value: 
+      objectReference: {fileID: 998886181}
+    - target: {fileID: 5259313404263441743, guid: 8d187cad997e3fe4aafb708a66f9be2e, type: 3}
+      propertyPath: targetObjects.Array.data[4]
+      value: 
+      objectReference: {fileID: 1724955401}
+    - target: {fileID: 5259313404263441743, guid: 8d187cad997e3fe4aafb708a66f9be2e, type: 3}
+      propertyPath: targetObjects.Array.data[5]
+      value: 
+      objectReference: {fileID: 1119264058}
     - target: {fileID: 5312895532162705518, guid: 8d187cad997e3fe4aafb708a66f9be2e, type: 3}
       propertyPath: mobText
       value: 
@@ -74072,6 +74455,14 @@ PrefabInstance:
       propertyPath: stoneText
       value: 
       objectReference: {fileID: 533370236}
+    - target: {fileID: 5481788378425282095, guid: 8d187cad997e3fe4aafb708a66f9be2e, type: 3}
+      propertyPath: GoldText
+      value: 
+      objectReference: {fileID: 2029469659}
+    - target: {fileID: 5485056946116704039, guid: 8d187cad997e3fe4aafb708a66f9be2e, type: 3}
+      propertyPath: GoldText
+      value: 
+      objectReference: {fileID: 2029469659}
     - target: {fileID: 5730915999528889748, guid: 8d187cad997e3fe4aafb708a66f9be2e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.48
@@ -74112,10 +74503,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6381902975877503251, guid: 8d187cad997e3fe4aafb708a66f9be2e, type: 3}
+      propertyPath: GoldText
+      value: 
+      objectReference: {fileID: 2029469659}
+    - target: {fileID: 6534646669609747392, guid: 8d187cad997e3fe4aafb708a66f9be2e, type: 3}
+      propertyPath: GoldText
+      value: 
+      objectReference: {fileID: 2029469659}
     - target: {fileID: 7955468750832858803, guid: 8d187cad997e3fe4aafb708a66f9be2e, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8258108626369865891, guid: 8d187cad997e3fe4aafb708a66f9be2e, type: 3}
+      propertyPath: GoldText
+      value: 
+      objectReference: {fileID: 2029469659}
+    - target: {fileID: 8316059741587581490, guid: 8d187cad997e3fe4aafb708a66f9be2e, type: 3}
+      propertyPath: GoldText
+      value: 
+      objectReference: {fileID: 2029469659}
+    - target: {fileID: 8446696579206535101, guid: 8d187cad997e3fe4aafb708a66f9be2e, type: 3}
+      propertyPath: GoldText
+      value: 
+      objectReference: {fileID: 2029469659}
     - target: {fileID: 8910004461053885063, guid: 8d187cad997e3fe4aafb708a66f9be2e, type: 3}
       propertyPath: m_IsActive
       value: 0
