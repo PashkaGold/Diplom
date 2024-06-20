@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DamagMob : MonoBehaviour
@@ -8,11 +6,21 @@ public class DamagMob : MonoBehaviour
     public string collisionTag;
     public float damageInterval = 1f; // Інтервал між нанесенням урону в секундах
 
-    private float damageTimer = 0f;
+    private float damageTimer = 0f; // Залишаємо приватним
 
     private void Update()
     {
         damageTimer += Time.deltaTime;
+    }
+
+    public float GetDamageTimer()
+    {
+        return damageTimer;
+    }
+
+    public void ResetDamageTimer()
+    {
+        damageTimer = 0f;
     }
 
     private void OnCollisionStay2D(Collision2D coll)
@@ -27,7 +35,7 @@ public class DamagMob : MonoBehaviour
                 {
                     // Нанесення урону
                     playerHealth.TakeDamage(collisionDamage);
-                    damageTimer = 0f; // Скидання таймера після нанесення урону
+                    ResetDamageTimer(); // Скидання таймера після нанесення урону
                 }
                 else
                 {
@@ -42,7 +50,7 @@ public class DamagMob : MonoBehaviour
         if (coll.gameObject.CompareTag(collisionTag))
         {
             // Скидання таймера при роз'єднанні колізії
-            damageTimer = 0f;
+            ResetDamageTimer();
         }
     }
 }

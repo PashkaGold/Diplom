@@ -7,39 +7,36 @@ public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 100;
     public int currentHealth;
-    public int sceneIndex;
     public TMP_Text GoldText;
+    public int sceneIndex;
 
     private void Start()
     {
-        currentHealth = maxHealth; // Встановлюємо початкове здоров'я рівним максимальному
+        currentHealth = maxHealth;
     }
 
-    public void ChangeHealse()
+    public void ChangeHealth()
     {
         if (Int32.Parse(GoldText.text) >= 10)
         {
             maxHealth += 10;
+            Debug.Log("Покращення");
         }
     }
 
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage; // Зменшуємо поточне здоров'я на величину отриманого урону
+        currentHealth -= damage;
 
-        // Перевіряємо, чи здоров'я стало менше або дорівнює нулю
         if (currentHealth <= 0)
         {
-            Die(); // Якщо так, викликаємо метод Die()
+            Die();
         }
     }
 
-    void Die()
+    private void Die()
     {
-        // Ваш код для обробки смерті персонажа
         Debug.Log("Player died!");
-
-        // Перехід на наступну сцену (використовуємо наступну сцену в порядку їх додавання до build settings)
-        SceneManager.LoadScene(sceneIndex);
+        SceneManager.LoadScene(sceneIndex); // Перехід на іншу сцену при смерті гравця
     }
 }

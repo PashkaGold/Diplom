@@ -11,32 +11,31 @@ public class Controler : MonoBehaviour
     public Rigidbody2D rb;
     private Vector2 direction;
     public Animator animator;
-    public float speed;
+    
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        LoadPlayerPrefs(); // Завантажуємо налаштування з PlayerPref при запуску скрипта
     }
+
     void Update()
     {
-        // �������� ������ ���� ��� ����
         direction.x = Input.GetAxis("Horizontal");
         direction.y = Input.GetAxis("Vertical");
 
-        // ������ ���������
         Vector2 movement = new Vector2(direction.x, direction.y).normalized;
         rb.velocity = movement * moveSpeed;
         animator.SetFloat("Horizontal", direction.x);
         animator.SetFloat("Vertical", direction.y);
         animator.SetFloat("Speed", direction.sqrMagnitude);
-        // ���������, �� ������� �������� ������ ����� (���������, �����)
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            // ��������� ����� ��� ��������� �����
             Attack();
         }
-
     }
+
     public TMP_Text GoldText;
 
     public void ChangeSpeed()
@@ -44,29 +43,40 @@ public class Controler : MonoBehaviour
         if (Int32.Parse(GoldText.text) >= 10)
         {
             var multiplier = moveSpeed * 0.1f;
-            moveSpeed += multiplier; // �������� �������� �� ������ �������
-        }
-    }
-    public void Attack()
-    {
-        // ���������, �� � ��'���� � ����������� ��������
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, attackRange);
-        foreach (Collider2D enemy in hitEnemies)
-        {
-            // ��� ����� ���������� ����� 䳿 �����, ���������, ���������� ������'� ������.
-            // ���������, enemy.GetComponent<Enemy>().TakeDamage(damage);
+            moveSpeed += multiplier;
+            SavePlayerPrefs(); // Зберігаємо зміни в PlayerPref
+            Debug.Log("Покращення збережено. Нова швидкість: " + moveSpeed);
         }
     }
 
-    // ������� ������� ����� ��� ����������
+    public void Attack()
+    {
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, attackRange);
+        foreach (Collider2D enemy in hitEnemies)
+        {
+            // Опрацьовуємо атаку на ворогів
+        }
+    }
+
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
     }
-    private void FixedUpdate()
-    {
 
+    private void LoadPlayerPrefs()
+    {
+        if (PlayerPrefs.HasKey("MoveSpeed"))
+        {
+            moveSpeed = PlayerPrefs.GetFloat("MoveSpeed");
+            Debug.Log("Швидкість завантажена з PlayerPref: " + moveSpeed);
+        }
     }
 
+    private void SavePlayerPrefs()
+    {
+        PlayerPrefs.SetFloat("MoveSpeed", moveSpeed);
+        PlayerPrefs.Save();
+        Debug.Log("Швидкість збережено в PlayerPref: " + moveSpeed);
+    }
 }

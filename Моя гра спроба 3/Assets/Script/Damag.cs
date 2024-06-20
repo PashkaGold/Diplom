@@ -1,4 +1,4 @@
-using System;
+п»їusing System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -10,30 +10,18 @@ public class Damag : MonoBehaviour
     public string collisionTagTree;
     public string collisionTagStone;
     public string collisionTagMob;
-    public string knockbackTag; // Тег об'єкта, який потрібно відкинути
-    public float knockbackForce = 10f; // Сила відкидання
+    public string knockbackTag;
+    public float knockbackForce = 10f;
     public TMP_Text GoldText;
 
+    private void Start()
+    {
+        LoadPlayerPrefs();
+    }
 
-    public void ChangeKnockback()
-    {
-        if (Int32.Parse(GoldText.text) >= 10)
-        {
-            float count = 1f;
-            knockbackForce += count;
-        }
-    }
-    public void ChangeDamage()
-    {
-        if (Int32.Parse(GoldText.text) >= 10)
-        {
-            collisionDamage += 1;
-        }
-    }
     private void OnTriggerEnter2D(Collider2D coll)
     {
-        // Перевірка на нанесення урону
-        if (coll.gameObject.tag == collisionTagTree || coll.gameObject.tag == collisionTagStone || coll.gameObject.tag == collisionTagMob)
+        if (coll.gameObject.CompareTag(collisionTagTree) || coll.gameObject.CompareTag(collisionTagStone))
         {
             Health health = coll.gameObject.GetComponent<Health>();
             if (health != null)
@@ -41,10 +29,16 @@ public class Damag : MonoBehaviour
                 health.TakeHit(collisionDamage);
             }
         }
+        else if (coll.gameObject.CompareTag(collisionTagMob))
+        {
+            EnemyEntity enemyEntity = coll.gameObject.GetComponent<EnemyEntity>();
+            if (enemyEntity != null)
+            {
+                enemyEntity.TakeDamage(collisionDamage);
+            }
+        }
 
-
-        // Перевірка на відкидання
-        if (coll.gameObject.tag == knockbackTag)
+        if (coll.gameObject.CompareTag(knockbackTag))
         {
             Rigidbody2D rb = coll.gameObject.GetComponent<Rigidbody2D>();
             if (rb != null)
@@ -53,5 +47,49 @@ public class Damag : MonoBehaviour
                 rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
             }
         }
+    }
+
+    public void ChangeKnockback()
+    {
+        if (Int32.Parse(GoldText.text) >= 10)
+        {
+            float count = 1f;
+            knockbackForce += count;
+            SavePlayerPrefs();
+            Debug.Log("РџРѕРєСЂР°С‰РµРЅРЅСЏ knockbackForce Р·Р±РµСЂРµР¶РµРЅРѕ: " + knockbackForce);
+        }
+    }
+
+    public void ChangeDamage()
+    {
+        if (Int32.Parse(GoldText.text) >= 10)
+        {
+            collisionDamage += 1;
+            SavePlayerPrefs();
+            Debug.Log("РџРѕРєСЂР°С‰РµРЅРЅСЏ collisionDamage Р·Р±РµСЂРµР¶РµРЅРѕ: " + collisionDamage);
+        }
+    }
+
+    private void LoadPlayerPrefs()
+    {
+        if (PlayerPrefs.HasKey("CollisionDamage"))
+        {
+            collisionDamage = PlayerPrefs.GetInt("CollisionDamage");
+            Debug.Log("РЈСЂРѕРЅ Р·Р°РІР°РЅС‚Р°Р¶РµРЅР° Р· PlayerPref: " + collisionDamage);
+        }
+
+        if (PlayerPrefs.HasKey("KnockbackForce"))
+        {
+            knockbackForce = PlayerPrefs.GetFloat("KnockbackForce");
+            Debug.Log("Knockback СЃРёР»Р° Р·Р°РІР°РЅС‚Р°Р¶РµРЅР° Р· PlayerPref: " + knockbackForce);
+        }
+    }
+
+    private void SavePlayerPrefs()
+    {
+        PlayerPrefs.SetInt("CollisionDamage", collisionDamage);
+        PlayerPrefs.SetFloat("KnockbackForce", knockbackForce);
+        PlayerPrefs.Save();
+        Debug.Log("РЈСЂРѕРЅ С‚Р° Knockback СЃРёР»Р° Р·Р±РµСЂРµР¶РµРЅРѕ РІ PlayerPref: " + collisionDamage + ", " + knockbackForce);
     }
 }
