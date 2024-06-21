@@ -13,7 +13,7 @@ public class ObjectActivator : MonoBehaviour
     [SerializeField]
     GameObject[] predefinedObjects;
     [SerializeField]
-    float activationInterval = 1f;  // Додано публічне поле для інтервалу
+    float activationInterval = 1f;  
 
     bool isActive = false;
     int addedObjectsCount = 0;

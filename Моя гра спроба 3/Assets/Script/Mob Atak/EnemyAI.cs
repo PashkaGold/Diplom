@@ -1,10 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using KnightAdventure.Utils;
-using UnityEngine.EventSystems;
-using System;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -30,6 +29,9 @@ public class EnemyAI : MonoBehaviour
     private float _nextCheckDirectionTime = 0f;
     private float _checkDirectionDuration = 0.1f;
     private Vector3 _lastPosition;
+
+    [SerializeField] private int damageAmount = 10; // Кількість урону, яка наноситься
+    [SerializeField] private bool canDealDamage = true; // Ввімкнення/вимкнення нанесення урону
 
     public enum State
     {
@@ -151,7 +153,23 @@ public class EnemyAI : MonoBehaviour
         if (Time.time > _nextAttackTime)
         {
             OnEnemyAttack?.Invoke(this, EventArgs.Empty);
+            if (canDealDamage)
+            {
+                DealDamage();
+            }
             _nextAttackTime = Time.time + _attackRate;
+        }
+    }
+
+    private void DealDamage()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            // Замість цього додайте реальну логіку нанесення урону гравцю
+            // Наприклад:
+            // player.GetComponent<Health>().TakeDamage(damageAmount);
+            Debug.Log("Нанесено урон: " + damageAmount);
         }
     }
 
