@@ -4,6 +4,9 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using System;
+using UnityEngine.UI;
+using Unity.VisualScripting;
+using UnityEngine.PlayerLoop;
 
 public class AtakPlayer : MonoBehaviour
 {
@@ -13,6 +16,8 @@ public class AtakPlayer : MonoBehaviour
     [SerializeField]
     float radius = 2f, angularSpeed = 2f;
     public TMP_Text GoldText;
+    public TMP_Text SpeedGunText;
+    public int Lvl;
     float positionX, positionY, angle = 0f;
 
     void Start()
@@ -22,14 +27,19 @@ public class AtakPlayer : MonoBehaviour
 
     public void ChangeSpeedGun()
     {
-        if (Int32.Parse(GoldText.text) >= 10)
+        if (Lvl <= 6 && Int32.Parse(GoldText.text) >= 10)
         {
             angularSpeed += 100f;
             SavePlayerPrefs(); // Зберігаємо зміни в PlayerPrefs
             Debug.Log("Покращення збережено. Нова швидкість зброї: " + angularSpeed);
+            Lvl++;
         }
+        Text();
     }
-
+    public void Text()
+    {
+        SpeedGunText.text = $"Lvl Speed Gun: {Lvl}";
+    }
     void Update()
     {
         positionX = center.position.x + Mathf.Cos(angle * Mathf.Deg2Rad) * radius;

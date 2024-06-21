@@ -11,7 +11,8 @@ public class Controler : MonoBehaviour
     public Rigidbody2D rb;
     private Vector2 direction;
     public Animator animator;
-    
+    private int Lvl = 0;
+    public TMP_Text SpeedLvl;
 
     void Start()
     {
@@ -40,13 +41,20 @@ public class Controler : MonoBehaviour
 
     public void ChangeSpeed()
     {
-        if (Int32.Parse(GoldText.text) >= 10)
+        if (Lvl <= 6 && Int32.Parse(GoldText.text) >= 10)
         {
             var multiplier = moveSpeed * 0.1f;
             moveSpeed += multiplier;
             SavePlayerPrefs(); // Зберігаємо зміни в PlayerPref
             Debug.Log("Покращення збережено. Нова швидкість: " + moveSpeed);
+            Lvl++;
         }
+        Text();
+    }
+
+    public void Text()
+    {
+        SpeedLvl.text = $"Lvl Speed: {Lvl}";
     }
 
     public void Attack()

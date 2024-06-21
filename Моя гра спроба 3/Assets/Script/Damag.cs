@@ -13,7 +13,10 @@ public class Damag : MonoBehaviour
     public string knockbackTag;
     public float knockbackForce = 10f;
     public TMP_Text GoldText;
-
+    public TMP_Text DamagehLvl;
+    public TMP_Text KnockhLvl;
+    private int LvlD = 0;
+    private int LvlK = 0;
     private void Start()
     {
         LoadPlayerPrefs();
@@ -48,26 +51,36 @@ public class Damag : MonoBehaviour
             }
         }
     }
-
+    private void Text()
+    {
+        DamagehLvl.text = $"Lvl Damage: {LvlD}";
+        KnockhLvl.text = $"Lvl Knockback: {LvlK}";
+    }
     public void ChangeKnockback()
     {
-        if (Int32.Parse(GoldText.text) >= 10)
+        if (LvlK <= 6 && Int32.Parse(GoldText.text) >= 10)
         {
             float count = 1f;
             knockbackForce += count;
             SavePlayerPrefs();
             Debug.Log("Покращення knockbackForce збережено: " + knockbackForce);
+            LvlK++;
         }
+        Text();
     }
+
+
 
     public void ChangeDamage()
     {
-        if (Int32.Parse(GoldText.text) >= 10)
+        if (LvlD <= 6 && Int32.Parse(GoldText.text) >= 10)
         {
             collisionDamage += 1;
             SavePlayerPrefs();
             Debug.Log("Покращення collisionDamage збережено: " + collisionDamage);
+            LvlD++;
         }
+        Text();
     }
 
     private void LoadPlayerPrefs()
