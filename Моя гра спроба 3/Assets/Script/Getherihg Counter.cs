@@ -36,30 +36,30 @@ namespace GatheringCounter
 
         public void ObminCoins1()
         {
-            if (wood >= 2)
+            while (wood >= 1)
             {
-                wood -= 2;
+                wood -= 1;
                 gold += 1;
-                UpdateUI();
             }
+            UpdateUI();
         }
         public void ObminCoins2()
         {
-            if (stone >= 2)
+            while (stone >= 1)
             {
-                stone -= 2;
+                stone -= 1;
                 gold += 1;
-                UpdateUI();
             }
+            UpdateUI();
         }
         public void ObminCoins3()
         {
-            if (mob >= 2)
+            while (mob >= 1)
             {
-                mob -= 2;
+                mob -= 1;
                 gold += 1;
-                UpdateUI();
             }
+            UpdateUI();
         }
 
         public void MinusGold(int count)
