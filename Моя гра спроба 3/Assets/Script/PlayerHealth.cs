@@ -9,19 +9,28 @@ public class PlayerHealth : MonoBehaviour
     public int currentHealth;
     public TMP_Text GoldText;
     public int sceneIndex;
+    public TMP_Text HealthLvl;
+    private int Lvl = 0;
 
     private void Start()
     {
         currentHealth = maxHealth;
     }
 
+    private void Text()
+    {
+        HealthLvl.text = $"Lvl Health: {Lvl}";
+    }
+
     public void ChangeHealth()
     {
-        if (Int32.Parse(GoldText.text) >= 10)
+        if (Lvl <= 6 && Int32.Parse(GoldText.text) >= 10)
         {
             maxHealth += 10;
             Debug.Log("Покращення");
+            Lvl++;
         }
+        Text();
     }
 
     public void TakeDamage(int damage)
